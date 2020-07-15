@@ -3,6 +3,7 @@
     <div class="row q-pa-sm bg-primary">
       <q-input 
         v-model="newTask"
+        @keyup.enter="addTask"
         class="col"
         square
         filled
@@ -10,7 +11,12 @@
         placeholder="Add task" 
         dense>
         <template v-slot:append>
-          <q-btn round dense flat icon="add" />
+          <q-btn 
+            @click="addTask"
+            round 
+            dense 
+            flat 
+            icon="add" />
         </template>
       </q-input>
     </div>
@@ -57,18 +63,18 @@
       return {
         newTask: '',
         tasks: [
-          {
-            title: 'task1',
-            done: false
-          },
-                    {
-            title: 'task2',
-            done: true
-          },
-                    {
-            title: 'task3',
-            done: false
-          }
+          // {
+          //   title: 'task1',
+          //   done: false
+          // },
+          //           {
+          //   title: 'task2',
+          //   done: true
+          // },
+          //           {
+          //   title: 'task3',
+          //   done: false
+          // }
         ]
       }
     },
@@ -83,6 +89,13 @@
         this.tasks.splice(index, 1)
         this.$q.notify('Task deleted')
       })
+      },
+      addTask() {
+        this.tasks.push({
+          title: this.newTask,
+          done: false
+        })
+        this.newTask= ''
       }
     }
   }
