@@ -16,6 +16,10 @@
         <div class="text-h3">Todo</div>
         <div class="text-subtitle1"> Mittwoch 15 July</div>
       </div>
+      <q-img
+        src="space.jpg"
+        class="header-image absolute-top"
+      />
     </q-header>
 
     <q-drawer
@@ -106,3 +110,13 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+  .header-image{
+    height: 100%;
+    z-index: -1;
+    opacity: 0.2;
+    filter: grayscale(100%);
+  }
+
+</style>
