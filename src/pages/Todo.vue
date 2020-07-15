@@ -54,6 +54,17 @@
         </q-item-section>
       </q-item>
     </q-list>
+    <div
+      v-if="!tasks.length" 
+      class="no-tasks absolute-center">
+      <q-icon
+        size="100px"
+        color="primary" 
+        name="check" /> 
+      <div class="text-h5 text-primary text-center">
+        No tasks
+      </div>
+    </div>
   </q-page>
 </template>
 
@@ -107,6 +118,10 @@
       text-decoration: line-through;
       color:#bbb;
     }
+  }
+
+  .no-tasks {
+    opacity: 0.5;
   }
 </style>
 
