@@ -5,7 +5,7 @@
       separator
       bordered>
       <q-item
-        v-for = "task in tasks"
+        v-for = "(task, index) in tasks"
         :key="task.title"
         @click="task.done = !task.done"
         :class=" {'done bg-blue-1' :task.done} "
@@ -25,6 +25,7 @@
           side
           >
           <q-btn 
+            @click.stop="deleteTask(index)"
             flat
             round
             dense
@@ -54,6 +55,18 @@
             done: false
           }
         ]
+      }
+    },
+    methods: {
+      deleteTask(index) {
+        this.$q.dialog({
+        title: 'Confirm',
+        message: 'Really delete?',
+        cancel: true,
+        persistent: true
+      }).onOk(() => {
+        this.tasks.splice(index, 1)
+      })
       }
     }
   }
