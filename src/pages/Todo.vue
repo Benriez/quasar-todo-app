@@ -1,14 +1,24 @@
 <template>
   <q-page class="bg-grey-3 column">
-    <q-list class="bg-white">
-      <q-item v-ripple>
+    <q-list 
+      class="bg-white"
+      separator
+      bordered>
+      <q-item
+        v-for = "task in tasks"
+        :key="task.title"
+        @click="task.done = !task.done"
+        :class=" {'done' :task.done} "
+        clickable
+        v-ripple>
         <q-item-section avatar>
           <q-checkbox 
-            v-model="color" 
+            v-model="task.done" 
+            class="no-pointer-events"
             color="primary" />
         </q-item-section>
         <q-item-section>
-          <q-item-label>Teal</q-item-label>
+          <q-item-label> {{task.title}} </q-item-label>
         </q-item-section>
       </q-item>
     </q-list>
@@ -17,6 +27,23 @@
 
 <script>
   export default {
-
+    data() {
+      return {
+        tasks: [
+          {
+            title: 'task1',
+            done: false
+          },
+                    {
+            title: 'task2',
+            done: true
+          },
+                    {
+            title: 'task3',
+            done: false
+          }
+        ]
+      }
+    }
   }
 </script>
