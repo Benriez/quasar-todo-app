@@ -6,13 +6,15 @@
   "author": "Benriez <stberiez@stud.h-da.de>",
   "private": true,
   "scripts": {
-    "test": "echo \"No test specified\" && exit 0"
+    "test": "echo \"No test specified\" && exit 0",
+    "deploy": "push-dir --dir=dist/spa --remote=gh-pages --branch=master"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
     "@vue/composition-api": "^0.6.4",
     "axios": "^0.18.1",
     "core-js": "^3.6.5",
+    "push-dir": "^0.4.1",
     "quasar": "^1.0.0",
     "vue-i18n": "^8.0.0"
   },
